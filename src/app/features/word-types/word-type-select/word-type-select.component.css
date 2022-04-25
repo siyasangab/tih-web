@@ -1,0 +1,16 @@
+select {
+    @apply text-gray-900 
+    text-sm 
+    font-thin 
+    cursor-pointer 
+    appearance-none 
+    py-2 px-4 
+    rounded 
+    shadow-sm border 
+    border-gray-300
+}
+
+option {
+    @apply font-thin 
+    text-sm
+}

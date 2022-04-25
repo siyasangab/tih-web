@@ -1,0 +1,10 @@
+<select
+  name="word-type-select"
+  id="word-type-select"
+  (change)="onWordTypeChanged($event)"
+>
+  <option value="-1">Select a word type</option>
+  <option *ngFor="let wordType of wordTypes" [value]="wordType.id">
+    {{ wordType.name }}
+  </option>
+</select>
