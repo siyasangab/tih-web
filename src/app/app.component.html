@@ -2,4 +2,10 @@
   <h1 class="text-2xl font-semibold mb-4">Sentence Generator App</h1>
 
   <app-word-type-select></app-word-type-select>
+
+  <section class="mt-4" *ngIf="selectedWordType">
+    <h2 class="font-semibold mb-2">
+      Available {{ selectedWordType.name | lowercase }}s
+    </h2>
+  </section>
 </section>

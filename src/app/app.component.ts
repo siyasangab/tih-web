@@ -13,8 +13,10 @@ export class AppComponent {
   constructor(private wordTypesService: WordTypesService) {
   }
 
+  selectedWordType!: WordType;
+
   ngOnInit() {
-    this.wordTypesService.$selectedWordType.subscribe(wordType => console.log({wordType}));
+    this.wordTypesService.$selectedWordType.subscribe(wordType => this.selectedWordType = wordType);
   }
 
 }
