@@ -7,7 +7,7 @@ import { WordType } from './word-type-model';
   providedIn: 'root'
 })
 export class WordTypesService {
-  wordTypesUrl = 'word-types';
+  private wordTypesUrl = 'word-types';
 
   constructor(private httpService: HttpService) { }
 

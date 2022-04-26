@@ -7,6 +7,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ConfigService } from './common/config/config.service';
 import { WordTypeSelectComponent } from './features/word-types/word-type-select/word-type-select.component';
+import { WordListComponent } from './features/words/word-list/word-list.component';
+import { WordDisplayComponent } from './features/words/word-display/word-display.component';
+import { FilterPipe } from './features/filter.pipe';
 
 export function initiliaseConfig(configService: ConfigService): Function {
     return () => configService.load();
@@ -14,7 +17,10 @@ export function initiliaseConfig(configService: ConfigService): Function {
 @NgModule({
   declarations: [
     AppComponent,
-    WordTypeSelectComponent
+    WordTypeSelectComponent,
+    WordListComponent,
+    WordDisplayComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

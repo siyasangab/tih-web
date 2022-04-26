@@ -1,0 +1,16 @@
+<div class="rounded-lg shadow ">
+  <input
+    type="text"
+    class="filter"
+    placeholder="Filter words..."
+    [(ngModel)]="searchText"
+  />
+
+  <div *ngIf="words.length > 0" class="max-h-52 overflow-y-scroll p-3">
+    <app-word-display
+      *ngFor="let word of words | wordFilter: searchText"
+      [word]="word"
+      (wordSelectedEvent)="handleWordSelected($event)"
+    ></app-word-display>
+  </div>
+</div>

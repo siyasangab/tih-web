@@ -1,0 +1,19 @@
+/* width */
+::-webkit-scrollbar, ::-moz-scrollbar {
+    @apply w-3
+}
+
+/* Track */
+::-webkit-scrollbar-track, ::-moz-scrollbar-track {
+    @apply shadow-lg inset-0 bg-blue-50 rounded-lg
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb, ::-moz-scrollbar-thumb {
+    @apply bg-blue-400
+    rounded-full
+}
+
+.filter {
+    @apply text-gray-900 rounded p-4 font-semibold text-center w-full border border-gray-200 mb-3 focus:placeholder-transparent
+}

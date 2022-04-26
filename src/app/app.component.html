@@ -3,9 +3,25 @@
 
   <app-word-type-select></app-word-type-select>
 
-  <section class="mt-4" *ngIf="selectedWordType">
+  <section class="mt-4" *ngIf="wordsSectionVisible">
     <h2 class="font-semibold mb-2">
-      Available {{ selectedWordType.name | lowercase }}s
+      Available {{ selectedWordType.name | lowercase }}s ({{ words.length }})
     </h2>
+
+    <app-word-list
+      [words]="words"
+      (wordSelectedEvent)="handleWordSelected($event)"
+    ></app-word-list>
+
+    <div *ngIf="sentence">
+      <h3 class="mt-4 font-semibold">Your sentence:</h3>
+
+      <div class="mt-3 bg-gray-50 p-4 rounded">
+        <p class="font-thin text-sm">
+          {{ sentence }}
+        </p>
+        <button class="mt-3 py-2 px-4 bg-blue-400 text-white rounded shadow-md">Publish</button>
+      </div>
+    </div>
   </section>
 </section>
