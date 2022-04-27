@@ -16,7 +16,11 @@ export class HttpService {
     return this.http.get<T>(`${this.getApiUrl()}/${path}`);
   }
 
-  getApiUrl() {
+  post<T>(path: string, data: any) {
+    return this.http.post<T>(`${this.getApiUrl()}/${path}`, data);
+  }
+
+  private getApiUrl() {
     return this.configService.getConfig().apiUrl;
   }
 }

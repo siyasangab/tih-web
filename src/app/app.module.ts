@@ -10,6 +10,8 @@ import { WordTypeSelectComponent } from './features/word-types/word-type-select/
 import { WordListComponent } from './features/words/word-list/word-list.component';
 import { WordDisplayComponent } from './features/words/word-display/word-display.component';
 import { FilterPipe } from './features/filter.pipe';
+import { SentencesListComponent } from './features/sentences/sentences-list/sentences-list.component';
+import { SentenceDisplayComponent } from './features/sentences/sentence-display/sentence-display.component';
 
 export function initiliaseConfig(configService: ConfigService): Function {
     return () => configService.load();
@@ -20,7 +22,9 @@ export function initiliaseConfig(configService: ConfigService): Function {
     WordTypeSelectComponent,
     WordListComponent,
     WordDisplayComponent,
-    FilterPipe
+    FilterPipe,
+    SentencesListComponent,
+    SentenceDisplayComponent
   ],
   imports: [
     BrowserModule,

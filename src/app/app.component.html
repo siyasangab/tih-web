@@ -20,8 +20,17 @@
         <p class="font-thin text-sm">
           {{ sentence }}
         </p>
-        <button class="mt-3 py-2 px-4 bg-blue-400 text-white rounded shadow-md">Publish</button>
+        <button
+          (click)="submitSentence()"
+          class="mt-3 py-2 px-4 bg-blue-400 text-white rounded shadow-md"
+        >
+          Publish
+        </button>
       </div>
-    </div>
+    </div> 
   </section>
+
+  <div class="mt-5" *ngIf="sentences && sentences.length > 0">
+    <app-sentences-list [sentences]="sentences"></app-sentences-list>
+  </div>
 </section>

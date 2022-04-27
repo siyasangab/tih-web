@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Sentence } from './features/sentences/sentence-model';
+import { SentencesService } from './features/sentences/sentences.service';
+import { SubmitSentence } from './features/sentences/submit-sentence-model';
 import { WordType } from './features/word-types/word-type-model';
 import { WordTypesService } from './features/word-types/word-types.service';
 import { Word } from './features/words/word-model';
@@ -18,13 +21,15 @@ export class AppComponent {
 
   sentence: string = '';
 
-  searchText: string = '';
+  sentences!: Sentence[];
 
   get wordsSectionVisible() {
     return this.selectedWordType && this.words.length > 0;
   }
 
-  constructor(private wordTypesService: WordTypesService, private wordsService: WordsService) {
+  constructor(private wordTypesService: WordTypesService, 
+    private wordsService: WordsService, 
+    private sentencesService: SentencesService) {
   }
 
   ngOnInit() {
@@ -32,10 +37,14 @@ export class AppComponent {
       this.selectedWordType = wordType;
       this.getWordsByWordType();
     });
+
+    this.sentencesService.getAll().subscribe((sentences) => {
+      this.sentences = sentences;
+    })
   }
 
   getWordsByWordType() {
-    this.wordsService.getByWordType(this.selectedWordType.id)
+    this.wordsService.getByWordType(this.selectedWordType?.id)
       .subscribe((words) => {
         this.words = words;
       })
@@ -52,5 +61,15 @@ export class AppComponent {
     }
 
     this.sentence += append.toLowerCase();
+  }
+
+  submitSentence() {
+    this.sentencesService.submit(new SubmitSentence(this.sentence)).subscribe((response) => {
+      this.sentences.unshift(response);
+      alert('You sentence was published successfully');
+      this.words = [];
+      this.selectedWordType = new WordType();
+      this.sentence = '';
+    })
   }
 }
